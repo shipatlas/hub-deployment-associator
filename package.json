@@ -1,0 +1,29 @@
+{
+  "name": "hub-deployment-associator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shipatlas/hub-deployment-associator.git"
+  },
+  "keywords": [
+    "ShipAtlas",
+    "Hub",
+    "Deployment",
+    "Workflow Run"
+  ],
+  "author": {
+    "name": "King'ori Maina",
+    "email": "j@kingori.co",
+    "url": "https://kingori.co"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/shipatlas/hub-deployment-associator/issues"
+  },
+  "homepage": "https://github.com/shipatlas/hub-deployment-associator#readme"
+}
