@@ -1,0 +1,11 @@
+name: Hub Deployment Associator
+description: Associate a GitHub Action workflow run with a Hub deployment
+
+inputs:
+  base-url:
+    description: Base URL of the Hub server
+    required: false
+
+runs:
+  using: node16
+  main: index.js
