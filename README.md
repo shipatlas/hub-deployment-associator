@@ -24,7 +24,8 @@ jobs:
   associate:
     runs-on: ubuntu-latest
     steps:
-      - uses: shipatlas/hub-deployment-associator@v1
+      - name: Associate Deployment
+        uses: shipatlas/hub-deployment-associator@v1
   deploy:
     runs-on: ubuntu-latest
     needs: associate
