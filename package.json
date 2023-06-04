@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "npx eslint --ext .js .",
     "lint-fix": "npx eslint --ext .js --fix .",
-    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt"
+    "prepare": "ncc build index.js --out dist --source-map --license licenses.txt"
   },
   "repository": {
     "type": "git",
