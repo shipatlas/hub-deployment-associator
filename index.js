@@ -6,7 +6,7 @@ const github = require('@actions/github');
 const baseUrlOverride = core.getInput('base-url');
 
 // GitHub Context Parameters
-const context = github.context;
+const { context } = github;
 const deploymentUid = context.event.deployment.id;
 const httpToken = context.event.deployment.payload.dispatch_token;
 const workflowRunUid = context.run_id;
