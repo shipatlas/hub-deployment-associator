@@ -2,7 +2,7 @@
   "name": "hub-deployment-associator",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "lint": "npx eslint --ext .js .",
     "lint-fix": "npx eslint --ext .js --fix .",
