@@ -2,11 +2,11 @@
   "name": "hub-deployment-associator",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "lint": "npx eslint --ext .js .",
     "lint-fix": "npx eslint --ext .js --fix .",
-    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt"
+    "prepare": "ncc build index.js --out dist --minify --source-map --license licenses.txt"
   },
   "repository": {
     "type": "git",

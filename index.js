@@ -6,10 +6,10 @@ const github = require('@actions/github');
 const baseUrlOverride = core.getInput('base-url');
 
 // GitHub Context Parameters
-const context = github.context;
-const deploymentUid = context.event.deployment.id;
-const httpToken = context.event.deployment.payload.dispatch_token;
-const workflowRunUid = context.run_id;
+const { deployment } = github.context.payload;
+const deploymentUID = deployment.id;
+const httpToken = deployment.payload.dispatch_token;
+const workflowRunUID = github.context.runId;
 
 // Register secrets with the runner to ensure they are masked in logs.
 core.setSecret(httpToken);
@@ -19,7 +19,7 @@ let baseUrl = 'https://api-reference.shipatlas.dev';
 if (baseUrlOverride) {
   baseUrl = baseUrlOverride;
 }
-const url = `${baseUrl}/callbacks/github/workflow_runs/${workflowRunUid}/associate/${deploymentUid}`;
+const url = `${baseUrl}/callbacks/github/workflow_runs/${workflowRunUID}/associate/${deploymentUID}`;
 
 // Prepare headers for the request.
 const headers = {
