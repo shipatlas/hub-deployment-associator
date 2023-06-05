@@ -6,8 +6,9 @@ const github = require('@actions/github');
 const baseUrlOverride = core.getInput('base-url');
 
 // GitHub Context Parameters
-const deploymentUID = github.context.payload.deployment.id;
-const httpToken = github.context.payload.deployment.payload.dispatch_token;
+const { deployment } = github.context.payload;
+const deploymentUID = deployment.id;
+const httpToken = deployment.payload.dispatch_token;
 const workflowRunUID = github.context.runId;
 
 // Register secrets with the runner to ensure they are masked in logs.
