@@ -19,16 +19,22 @@ let baseUrl = 'https://api-reference.shipatlas.dev';
 if (baseUrlOverride) {
   baseUrl = baseUrlOverride;
 }
-const url = `${baseUrl}/callbacks/github/workflow_runs/${workflowRunUID}/associate/${deploymentUID}`;
+const url = `${baseUrl}/callbacks/github/deployment_associator`;
+
+// Prepare payload for the request.
+const payload = {
+  deployment_uid: deploymentUID,
+  workflow_run_uid: workflowRunUID,
+};
 
 // Prepare headers for the request.
 const headers = {
-  Accept: 'application/json',
+  Accept: 'application/vnd.api+json',
   Authorization: `Bearer ${httpToken}`,
-  'Content-Type': 'application/json',
+  'Content-Type': 'application/vnd.api+json',
 };
 
-axios.post(url, null, { headers })
+axios.post(url, payload, { headers })
   .then((response) => {
     const statusCode = response.status;
     const { statusText } = response;
