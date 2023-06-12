@@ -23,9 +23,9 @@ const url = `${baseUrl}/callbacks/github/workflow_runs/${workflowRunUID}/associa
 
 // Prepare headers for the request.
 const headers = {
-  Accept: 'application/json',
+  Accept: 'application/vnd.api+json',
   Authorization: `Bearer ${httpToken}`,
-  'Content-Type': 'application/json',
+  'Content-Type': 'application/vnd.api+json',
 };
 
 axios.post(url, null, { headers })
