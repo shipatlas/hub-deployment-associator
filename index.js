@@ -16,7 +16,7 @@ const workflowRunUID = github.context.runId;
 core.setSecret(httpToken);
 
 // Prepare URL for the request.
-let baseUrl = 'https://api-reference.shipatlas.dev';
+let baseUrl = 'https://hub.shipatlas.dev';
 if (baseUrlOverride) {
   baseUrl = baseUrlOverride;
 }
