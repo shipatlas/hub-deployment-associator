@@ -5,6 +5,9 @@ inputs:
   base-url:
     description: Base URL of the Hub server
     required: false
+  callback-path:
+    description: Callback path on the Hub server
+    required: false
 
 runs:
   using: node16
