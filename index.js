@@ -42,7 +42,7 @@ const headers = {
 };
 
 axios({
-  data: payload,
+  data: JSON.stringify(payload),
   headers,
   method: 'post',
   url,
