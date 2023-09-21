@@ -41,7 +41,12 @@ const headers = {
   'Content-Type': 'application/vnd.api+json',
 };
 
-axios.post(url, payload, { headers })
+axios({
+  data: payload,
+  headers,
+  method: 'post',
+  url,
+})
   .then((response) => {
     const statusCode = response.status;
     const { statusText } = response;
