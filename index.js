@@ -37,7 +37,7 @@ const payload = {
 // Prepare headers for the request.
 const headers = {
   Accept: 'application/vnd.api+json',
-  Authorization: `Bearer ${httpToken}`,
+  Authorization: `Token token="${httpToken}"`,
   'Content-Type': 'application/vnd.api+json',
 };
 
