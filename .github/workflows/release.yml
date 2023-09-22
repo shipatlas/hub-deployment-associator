@@ -20,5 +20,6 @@ jobs:
         with:
           tag_name: ${{ env.VERSION }}
           release_name: Version ${{ env.VERSION }}
+          body_path: CHANGELOG/v${{ env.VERSION }}.md
           draft: false
           prerelease: false
