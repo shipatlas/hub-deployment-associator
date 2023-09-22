@@ -41,6 +41,10 @@ const headers = {
   'Content-Type': 'application/vnd.api+json',
 };
 
+core.debug(`Data:    ${JSON.stringify(payload)}`);
+core.debug(`Headers: ${JSON.stringify(headers)}`);
+core.debug(`URL:     ${url}`);
+
 axios({
   data: JSON.stringify(payload),
   headers,
