@@ -3,8 +3,8 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 // Action Input Parameters
-const baseUrlOverride = core.getInput('base-url');
-const callbackPathOverride = core.getInput('callback-path');
+const baseUrl = core.getInput('base-url');
+const callbackPath = core.getInput('callback-path');
 
 // GitHub Context Parameters
 const { deployment } = github.context.payload;
@@ -16,16 +16,6 @@ const workflowRunUID = github.context.runId;
 core.setSecret(httpToken);
 
 // Prepare URL for the request.
-let baseUrl = 'https://hub.shipatlas.dev';
-if (baseUrlOverride) {
-  baseUrl = baseUrlOverride;
-}
-
-let callbackPath = '';
-if (callbackPathOverride) {
-  callbackPath = callbackPathOverride;
-}
-
 const url = `${baseUrl}${callbackPath}`;
 
 // Prepare payload for the request.
