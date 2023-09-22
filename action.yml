@@ -4,6 +4,11 @@ description: Associate a GitHub Action workflow run with a Hub deployment
 inputs:
   base-url:
     description: Base URL of the Hub server
+    default: https://hub.shipatlas.dev
+    required: false
+  callback-path:
+    description: Callback path on the Hub server
+    default: /callbacks/github/deployment_associator
     required: false
 
 runs:

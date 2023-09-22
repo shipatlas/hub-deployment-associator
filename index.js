@@ -3,7 +3,8 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 // Action Input Parameters
-const baseUrlOverride = core.getInput('base-url');
+const baseUrl = core.getInput('base-url');
+const callbackPath = core.getInput('callback-path');
 
 // GitHub Context Parameters
 const { deployment } = github.context.payload;
@@ -15,11 +16,7 @@ const workflowRunUID = github.context.runId;
 core.setSecret(httpToken);
 
 // Prepare URL for the request.
-let baseUrl = 'https://api-reference.shipatlas.dev';
-if (baseUrlOverride) {
-  baseUrl = baseUrlOverride;
-}
-const url = `${baseUrl}/callbacks/github/deployment_associator`;
+const url = `${baseUrl}${callbackPath}`;
 
 // Prepare payload for the request.
 const payload = {
@@ -30,11 +27,20 @@ const payload = {
 // Prepare headers for the request.
 const headers = {
   Accept: 'application/vnd.api+json',
-  Authorization: `Bearer ${httpToken}`,
+  Authorization: `Token token="${httpToken}"`,
   'Content-Type': 'application/vnd.api+json',
 };
 
-axios.post(url, payload, { headers })
+core.debug(`Data:    ${JSON.stringify(payload)}`);
+core.debug(`Headers: ${JSON.stringify(headers)}`);
+core.debug(`URL:     ${url}`);
+
+axios({
+  data: JSON.stringify(payload),
+  headers,
+  method: 'post',
+  url,
+})
   .then((response) => {
     const statusCode = response.status;
     const { statusText } = response;
